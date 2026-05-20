@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>关宇 · 美业品牌与运营专家</title>
+    <!-- Font Awesome 6 (免费图标库) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #f9fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px 24px;
+            max-width: 1360px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1e293b, #2c3e66);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: 0.2s;
+            font-size: 1rem;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #2c3e66;
+            border-bottom-color: #2c3e66;
+        }
+
+        /* 通用区块 */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            letter-spacing: -0.01em;
+            color: #0b2b3b;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #b68b40;
+            border-radius: 4px;
+            margin: 14px auto 0;
+        }
+
+        /* 英雄区 / 头像 + 欢迎语 */
+        .hero {
+            text-align: center;
+            padding: 64px 0 48px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(145deg, #e9eef3, #dce3ec);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+        }
+
+        .avatar i {
+            font-size: 5rem;
+            color: #2c3e66;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1f2b3a, #3a5a7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: #2c3e66;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .hero-quote {
+            max-width: 700px;
+            margin: 28px auto 0;
+            font-size: 1.25rem;
+            color: #334155;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 28px;
+            font-style: normal;
+            font-weight: 450;
+        }
+
+        /* 核心业务三块卡片 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin: 40px 0 20px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s;
+            border: 1px solid #edf2f7;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            background: #f1f5f9;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 40px;
+            margin: 0 auto 20px;
+            color: #b68b40;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* 关于我区域 (故事+时间轴) */
+        .about-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .story-box {
+            background: white;
+            border-radius: 32px;
+            padding: 40px 36px;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.05);
+        }
+
+        .story-box p {
+            font-size: 1.08rem;
+            margin-bottom: 20px;
+            line-height: 1.65;
+            color: #1e2a3e;
+        }
+
+        .timeline {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 16px;
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 32px 24px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            border-left: 2px solid #e2e8f0;
+            padding-left: 20px;
+        }
+
+        .timeline-item:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .timeline-year {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #b68b40;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: #334155;
+            margin-top: 8px;
+        }
+
+        /* 品牌项目卡片 (三个项目) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 16px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #eef2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #5b6e8c;
+        }
+
+        .project-content {
+            padding: 28px 24px 32px;
+        }
+
+        .project-content h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2c3e66;
+            margin-bottom: 14px;
+        }
+
+        .project-stats {
+            margin-top: 18px;
+            font-weight: 600;
+            color: #b68b40;
+        }
+
+        /* 理念板块 */
+        .philosophy-block {
+            background: white;
+            border-radius: 40px;
+            padding: 56px 40px;
+            text-align: center;
+            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.04);
+        }
+
+        .quote-big {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2b3a;
+            margin-bottom: 32px;
+            line-height: 1.3;
+        }
+
+        .future-split {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .future-card {
+            flex: 1;
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 28px;
+        }
+
+        /* 联系区域 */
+        .contact-wrapper {
+            background: white;
+            border-radius: 36px;
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.04);
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            background: #f1f5f9;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 28px;
+            border-radius: 60px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 28px;
+        }
+
+        .social-icon {
+            background: #f1f5f9;
+            width: 52px;
+            height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            font-size: 1.6rem;
+            color: #1e293b;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #b68b40;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #eef2f8;
+            padding: 40px 0 32px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 24px;
+        }
+
+        .footer-social a {
+            color: #5b6e8c;
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: #b68b40;
+        }
+
+        .copyright {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .timeline {
+                flex-direction: column;
+            }
+            .timeline-item {
+                border-left: none;
+                border-top: 1px solid #e2e8f0;
+                padding: 16px 0 0;
+                margin-top: 12px;
+            }
+            .timeline-item:first-child {
+                border-top: none;
+                padding-top: 0;
+            }
+            .quote-big {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">关宇 · 造风者</div>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#brands">品牌·项目</a></li>
+            <li><a href="#philosophy">理念与未来</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- 首页 / 英雄区 + 核心业务速览 -->
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+                <div class="avatar">
+
+  <img src="my-photo.jpg" alt="关宇的照片" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+
+</div>
+                <h1>关宇</h1>
+                <div class="tagline">东北人闯美业十余年 · 品牌主理人 & 实战运营专家</div>
+                <div class="hero-quote">
+                    “与其追风口，不如自己造风口”
+                </div>
+            </div>
+
+            <!-- 核心业务速览（三张卡片） -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-crown"></i></div>
+                    <h3>品牌主理人</h3>
+                    <p>“潮清秀”|“眉喜匠”双品牌创始人，自主研发美容仪器设备及纹绣品牌，扎根产品与技术源头。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>技术源头厂商</h3>
+                    <p>亲身参与打造4款对标进口的热门设备，自主仪器“潮清秀”耗材已服务超20,000人次。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fab fa-tiktok"></i></div>
+                    <h3>抖音运营实战派</h3>
+                    <p>3个月0基础学成，纹绣店账号单条视频37万+曝光，月均引流30-40个精准新客。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我：故事+时间轴 -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-grid">
+                <div class="story-box">
+                    <p><strong>我是关宇，87年吉林人。</strong> 2012年，我误打误撞跨行进入美业。从最基础的医美机构打工者，一步步做到为明星服务的资深技术专家，业绩破千万。公司转型让我带着一身技术离开，但我没有退却。</p>
+                    <p>创业路上，缺资金、不懂运营、内部矛盾……该踩的坑一个没落下。也正是这些“坑”，逼我完成了两件引以为傲的事：<strong>打造了属于自己的仪器品牌“潮清秀”</strong>，以及<strong>从0死磕抖音，让纹绣店“眉喜匠”靠内容杀出重围</strong>。</p>
+                    <p>现在，我把十年踩过的坑变成真金白银的经验，目标只有一个：帮那些不想被淘汰的美业同行，把路趟得更平一些。</p>
+                </div>
+                <!-- 关键里程碑时间轴 -->
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-year">2012</div><div class="timeline-desc">跨界入行美业</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2014</div><div class="timeline-desc">为明星服务 · 业绩破千万</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2016-2018</div><div class="timeline-desc">参与打造4款热门美容设备</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2020</div><div class="timeline-desc">创立仪器品牌“潮清秀”</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2023</div><div class="timeline-desc">创立纹绣品牌“眉喜匠”</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2024至今</div><div class="timeline-desc">抖音运营爆发 · 37万+播放</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌与项目（三个核心项目卡片） -->
+    <section id="brands">
+        <div class="container">
+            <h2 class="section-title">品牌·项目</h2>
+            <div class="projects-grid">
+                <!-- 潮清秀仪器 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: #eef2fa; display: flex; align-items: center; justify-content: center;">
+    <img src="chaoqingxiu-logo.png" alt="潮青秀 Logo" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+</div>
+                    <div class="project-content">
+                        <div class="project-badge">自有品牌 · 美容仪器</div>
+                        <h3>「潮清秀」仪器</h3>
+                        <p>自主研发对标进口设备的美容仪器，从设备到耗材品质严控。以高性价比和稳定性能赢得市场口碑。</p>
+                        <div class="project-stats">✅ 耗材服务超 20,000+ 人次</div>
+                    </div>
+                </div>
+                <!-- 眉喜匠纹绣 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: #fcf6ef;"><i class="fas fa-pen-fancy" style="font-size: 4rem; color:#b68b40;"></i></div>
+                    <div class="project-content">
+                        <div class="project-badge">夫妻共创 · 纹绣品牌</div>
+                        <h3>「眉喜匠」纹绣</h3>
+                        <p>扎根社区的高端纹绣品牌，主张自然、精细、持久。用技术美学重新定义眉眼唇艺术。</p>
+                        <div class="project-stats">📍 广州南沙 · 口碑累计服务上千顾客</div>
+                    </div>
+                </div>
+                <!-- 抖音运营案例 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: #eef2fa;"><i class="fab fa-tiktok" style="font-size: 4rem; color:#b68b40;"></i></div>
+                    <div class="project-content">
+                        <div class="project-badge">新媒体实战 · 引流标杆</div>
+                        <h3>抖音运营实战</h3>
+                        <p>3个月从0搭建纹绣店账号，内容驱动精准获客，打破美业传统流量困局。</p>
+                        <div class="project-stats">📈 单条视频37万+曝光 | 月均引流30-40个新客</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理念与未来 -->
+    <section id="philosophy">
+        <div class="container">
+            <h2 class="section-title">理念与未来</h2>
+            <div class="philosophy-block">
+                <div class="quote-big">“与其被动追风口，不如主动造风口”</div>
+                <p style="max-width: 700px; margin: 0 auto 28px; font-size: 1.05rem;">美业的下一个十年，属于那些既能深耕产品与技术，又能玩转新流量的人。</p>
+                <div class="future-split">
+                    <div class="future-card">
+                        <i class="fas fa-chart-line" style="font-size: 2rem; color:#b68b40; margin-bottom: 16px; display: inline-block;"></i>
+                        <h3 style="margin-bottom: 12px;">正在做的事</h3>
+                        <p>聚焦抖音生态，同时布局视频号与小红书，将实战方法论产品化，帮助更多美业门店拿到线上结果。</p>
+                    </div>
+                    <div class="future-card">
+                        <i class="fas fa-handshake" style="font-size: 2rem; color:#b68b40; margin-bottom: 16px; display: inline-block;"></i>
+                        <h3 style="margin-bottom: 12px;">寻找伙伴 · 爆发计划</h3>
+                        <p>寻找志同道合的投资人与厂家，将「潮清秀」仪器项目从产品到营销全面升级，实现百万级曝光，让扎根市场的仪器真正爆发。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系与合作 -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">联系与合作</h2>
+            <div class="contact-wrapper">
+                <i class="fas fa-comments" style="font-size: 2.5rem; color: #b68b40; margin-bottom: 12px;"></i>
+                <p style="font-size: 1.2rem; font-weight: 500;">希望找到志同道合的你</p>
+                <div style="margin: 16px auto; max-width: 500px;">
+                    <p>✔ 寻找靠谱美业仪器 <strong>源头工厂/厂家</strong><br>
+                       ✔ 希望通过新媒体撬动业绩的<strong>美业老板</strong><br>
+                       ✔ 有意投资美业赛道的<strong>投资人</strong><br>
+                       ✔ 想要交流抖音运营破局的朋友</p>
+                </div>
+                <div class="contact-email">
+                    <i class="fas fa-envelope"></i> 38200851@qq.com
+                </div>
+                <p style="margin: 12px 0 8px;">📱 微信合作入口：<strong>guanyu8741</strong> （添加注明来意）</p>
+                <div class="social-links">
+                    <a href="https://v.douyin.com/RCdP7bm5bwY/ 3@2.com :2pm" class="social-icon" aria-label="抖音"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon" aria-label="小红书"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-icon" aria-label="视频号"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://v.douyin.com/RCdP7bm5bwY/ 3@2.com :2pm" aria-label="抖音"><i class="fab fa-tiktok"></i></a>
+                <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="小红书"><i class="fab fa-sistrix"></i></a>
+            </div>
+            <div class="copyright">
+                © 2026 关宇 · 美业造风者 | 扎根实战 用结果说话
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 平滑滚动 + 导航高亮 (简易)
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.pushState(null, null, targetId);
+                }
+            }
+        });
+    });
+</script>
+<!-- 微信二维码弹窗 -->
+<div id="wechatModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px 20px 20px; border-radius: 32px; text-align: center; max-width: 280px; margin: auto;">
+        <img src="wechat-qr.jpg" alt="微信二维码" style="width: 100%; border-radius: 16px;">
+        <p style="margin-top: 16px; font-size: 16px;">微信ID：<strong>guanyu8741</strong></p>
+        <p style="font-size: 12px; color: #666;">长按保存图片，微信扫码添加</p>
+    </div>
+</div>
+
+<script>
+    // 获取弹窗元素
+    var modal = document.getElementById('wechatModal');
+    // 给所有微信图标加上点击事件
+    var wechatIcons = document.querySelectorAll('a[aria-label="微信"], a[aria-label="小红书"]'); // 注意：原代码中微信用的是fa-weixin，可能需要调整选择器
+    // 更精确地：找到所有 href 包含 weixin 或 class 包含 weixin 的 a 标签
+    var wechatLinks = document.querySelectorAll('.social-icon[aria-label="微信"], .footer-social a[aria-label="微信"]');
+    
+    function showModal() {
+        modal.style.display = 'flex';
+    }
+    function hideModal() {
+        modal.style.display = 'none';
+    }
+    wechatLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            showModal();
+        });
+    });
+    modal.addEventListener('click', hideModal);
+</script>
+</body>
+</html>
